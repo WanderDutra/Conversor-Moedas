@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConversorMoeda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <img src="./img/4947118.png" alt="imagem-dinheiro" class="image-dinheiro">
+    <main>
+        <label class="Converter">Converter <b>De</b>
+            <select class="input" id="currency1">
+                <option value="real">R$ Real Brasileiro</option>
+                <option value="dolar">US$ Dolar Americano</option>
+                <option value="euro">€ Euro</option>
+                <option value="libra">£ Libra Esterlina</option>
+            </select>
+        </label>
+        <label class="Converter">Converter<b>Para</b>
+            <select class="input" id="currency2">
+                <option value="dolar">US$ Dolar Americano</option>
+                <option value="euro">€ Euro</option>
+                <option value="libra">£ Libra Esterlina</option>
+                <option value="real">R$ Real Brasileiro</option>
+            </select>
+        </label>
+        <br>
+        <label><b id="valor-final">Valor</b>
+
+
+            <input class="Value-currency" placeholder="R$ 0,00">
+
+        </label>
+        <br>
+        <button class="convert-button">Converter</button>
+    </main>
+    <footer>
+        <div>
+            <img class="image-moeda" id="logo-currency1" src="./img/brasil 2.png" alt="logo-moeda-real">
+            <p class="texto-moedas"  id="text-currency1">Real</p>
+            <p class="texto-valor" id="value1">R$ 0,00</p>
+        </div>
+        <div>
+            <img class="image-moeda" id="seta2" src="./img/Vector - Copia.png" alt="seta">
+
+            <div>
+                <img class="image-moeda" id="logo-currency" src="./img/Dolar.png" alt="logo-moeda-dolar">
+                <p class="texto-moedas" id="text-currency">Dolar</p>
+                <p class="texto-valor" id="other">US$ 0,00</p>
+
+
+            </div>
+
+
+
+
+    </footer>
+
+</body>
+<script src="./js.js"></script>
+
+</html>
