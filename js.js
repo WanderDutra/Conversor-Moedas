@@ -1,7 +1,7 @@
 const convertButton = document.querySelector(".convert-button");
 const currencySelect2 = document.querySelector("#currency2");
 const currencySelect1 = document.querySelector("#currency1");
-function convertValues() {
+ async function convertValues() {
 
     const inputCurrencyValue = document.querySelector(".Value-currency").value
 
@@ -9,12 +9,13 @@ function convertValues() {
 
     const valueOther = document.querySelector("#other")
 
-
+const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,GBP-BRL,BRL-USD,BRL-EUR,BRL-GBP,USD-EUR,USD-GBP,EUR-USD,EUR-GBP,GBP-USD,GBP-EUR").then(response => response.json())
+ 
    
     let realToday = 1
-    let dolarToday = 4.95
-    let euroToday = 5.34
-    let libraToday = 6.23
+    let dolarToday = data.USDBRL.high
+    let euroToday = data.EURBRL.high
+    let libraToday = data.GBPBRL.high
 
     if (currencySelect1.value == "real") {
         value1.innerHTML = new Intl.NumberFormat("pt-BR", {
@@ -23,9 +24,9 @@ function convertValues() {
             currency: "BRL"
         }).format(inputCurrencyValue)
          realToday = 1
-         dolarToday = 4.95
-         euroToday = 5.34
-         libraToday = 6.23}
+         dolarToday = data.USDBRL.high
+         euroToday = data.EURBRL.high
+         libraToday = data.GBPBRL.high}
 
     if (currencySelect1.value == "dolar") {
         value1.innerHTML = new Intl.NumberFormat("en-US", {
@@ -33,33 +34,33 @@ function convertValues() {
             style: "currency",
             currency: "USD"
         }).format(inputCurrencyValue)
-        realToday = 0.20
-        dolarToday = 1
-        euroToday = 1.08
-        libraToday = 1.26
-    }
+        realToday = data.BRLUSD.high
+         dolarToday = 1
+         euroToday = data.USDEUR.high
+         libraToday = data.USDGBP.high}
+    
     if (currencySelect1.value == "euro") {
         value1.innerHTML = new Intl.NumberFormat("de-DE", {
 
             style: "currency",
             currency: "EUR"
         }).format(inputCurrencyValue)
-        realToday = 0.19
-        dolarToday = 0.93
+        realToday = data.BRLEUR.high
+        dolarToday = data.USDEUR.high
         euroToday = 1
-        libraToday = 1.17
-    }
+        libraToday = data.GBPEUR.high}
+    
     if (currencySelect1.value == "libra") {
         value1.innerHTML = new Intl.NumberFormat("de-DE", {
 
             style: "currency",
             currency: "GBP"
         }).format(inputCurrencyValue)
-        realToday = 0.16
-        dolarToday = 0.79
-        euroToday = 0.86
-        libraToday = 1
-    }
+        realToday = data.BRLGBP.high
+         dolarToday = data.USDGBP.high
+         euroToday = data.EURGBP.high
+         libraToday = 1}
+    
 
     if (currencySelect2.value == "dolar") {
         valueOther.innerHTML = new Intl.NumberFormat("en-US", {
